@@ -36,7 +36,10 @@ module fft_mod
 #endif
 
 !fft uses the SCILIB on SGICRAY, and the NAG library otherwise
-#if defined(_CRAY) || defined(sgi_mipspro)
+#ifdef _CRAY
+#  define SGICRAY
+#endif
+#ifdef sgi_mipspro
 #  define SGICRAY
 #endif
 
